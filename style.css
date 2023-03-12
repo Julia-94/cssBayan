@@ -1,0 +1,246 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior:smooth;
+  font-size: 10px;
+}
+  
+body, h1, h2, h3, h4, h5, h6, p, ol, ul, img {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+body {
+  font-family: 'Comic Neue', sans-serif;
+  font-style: normal;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1rem;
+  background-color: rgba(119, 136, 153,0.3);
+  position: static;
+}
+
+h1 {
+  font-family: 'Comic Neue', sans-serif;
+  color: #000;
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 5rem;
+  padding-top: 1.5rem; 
+}
+
+.accordion {
+  max-width: 60%;
+  min-height: 100%;
+  padding: 1.75rem 15rem;
+  margin: auto;
+  position: static;
+}
+
+.accordion-item_input{
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-image: url('./svg/plus_icon_2.svg');
+  opacity: 0;
+  background-position: center;
+  transition: all .2s ease 0s;
+}
+
+p {
+  color: #708090;
+  transition: all .2s ease 0s;
+}
+
+.accordion-item {
+  min-width: 100%;
+  min-height: 100%;
+  /*height: auto;*/
+  border-top: 1px solid rgba(119, 136, 153,0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.wrapper {
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*.img-meme {
+  display: none;
+  padding: 1rem 0 4rem;
+}
+
+.img {
+  width: 40rem;
+  transition: all 3s ease 0s;
+}*/
+
+.img-meme {
+  opacity: 0;
+  height: 0%;
+  transition: all 0.5s ease 0s;
+  padding-top: 1.5rem;
+}
+
+.img {
+  width: auto;
+  height: 0rem;
+  transition: all 0.8s ease 0s;
+}
+
+.accordion:hover p {
+  color: #000;
+}
+
+.accordion-item_input:checked ~ .img-meme{
+  /*height: 100%;*/
+  opacity: 1;
+}
+
+.accordion-item_input:checked ~ .img-meme .img{
+  height: 34rem;
+}
+
+.accordion:hover .icon {
+  opacity: 1;
+}
+
+.accordion-item:hover .icon{
+  background-image: url('./svg/close_icon.svg');
+  width: 2.25rem;
+}
+
+.accordion-item_input:checked ~ .wrapper .icon{
+  background-image: url('./svg/close_icon.svg');
+  width: 2.25rem;
+}
+
+.accordion-item:hover .img-meme {
+  /*height: 100%;*/
+  opacity: 1;
+}
+
+.accordion-item:hover .img-meme .img {
+  height: 34rem;
+}
+
+@media(max-width:1224px){
+  .accordion {
+    max-width: 70%;
+    min-height: 100%;
+    padding: 1.5rem 12.5rem;
+  }
+  h1 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+    padding-top: 1.25rem; 
+  }
+  p {
+    font-size: 2rem;
+  }
+  .img-meme {
+    padding-top: 1rem;
+  }
+  .wrapper {
+    padding-top: 0rem;
+    height: 2.5rem; /* как установить в %? */
+  }
+
+  .accordion-item_input{
+    cursor:none;
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .accordion-item_input:checked ~ .img-meme .img{
+    height: 24rem;
+  }
+  
+  .accordion-item:hover .icon{
+    width: 1.75rem;
+  }
+  
+  .accordion-item_input:checked ~ .wrapper .icon{
+    width: 1.75rem;
+  }
+
+  .accordion-item:hover .img-meme .img {
+    height: 24rem;
+  }
+}
+
+@media(max-width:750px){
+  .accordion {
+    max-width: 80%;
+    min-height: 100%;
+    padding: 1rem 4rem;
+  }
+  h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+    padding-top: 1rem; 
+  }
+  p {
+    font-size: 1.25rem;
+  }
+  
+  .accordion-item_input{
+    cursor:none;
+  }
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .wrapper {
+    padding-top: 0.5rem;
+    height: 2rem; /* как установить в %? */
+  }
+  .img-meme {
+    padding-top: 0.5rem;
+  }
+
+  .accordion-item {
+    padding-top: 0rem;
+  }
+
+  .accordion-item_input:checked ~ .img-meme .img{
+    height: 12rem;
+  }
+  
+  .accordion-item:hover .icon{
+    width: 1.25rem;
+  }
+  
+  .accordion-item_input:checked ~ .wrapper .icon{
+    width: 1.25rem;
+  }
+
+  .accordion-item:hover .img-meme .img {
+    height: 12rem;
+  }
+
+}
+
+
+
