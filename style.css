@@ -17,6 +17,7 @@ body {
   font-weight: 400;
   line-height: 2rem;
   background-color: rgba(119, 136, 153,0.3);
+  position: static;
 }
 
 h1 {
@@ -33,8 +34,9 @@ h1 {
   min-height: 100%;
   padding: 1.75rem 15rem;
   margin: auto;
-  position: relative;
-  /*cursor: pointer;*/
+  position: static;
+  
+  
 }
 
 .accordion-item_input{
@@ -43,6 +45,7 @@ h1 {
   opacity: 0;
   position: absolute;
   top: 0; bottom: 0; left: 0; right: 0; /*как выставить без этого*/
+  cursor: pointer;
 }
 
 .icon {
@@ -61,45 +64,61 @@ p {
 
 .accordion-item {
   min-width: 100%;
-  height: 100%;
+  /*height: 100%;*/
+  height: auto;
   border-top: 1px solid rgba(119, 136, 153,0.3);
-  transition-duration: 2s;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .wrapper {
   min-width: 100%;
-  height: 2.5rem; /* как установить в %? */
+  height: 4rem; /* как установить в %? */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 0;
+  
 }
 
-.img-meme {
+/*.img-meme {
   display: none;
   padding: 1rem 0 4rem;
 }
 
 .img {
   width: 40rem;
+  transition: all 3s ease 0s;
+}*/
+
+.img-meme {
+  opacity: 0;
+  height: 0%;
+  transition: all 0.5s ease 0s;
+  padding: 1.5rem;
+
 }
 
-.accordion-item_input:checked ~ .img-meme{
-  display: block;
-}
-
-.accordion-item_input:checked ~ .icon{
-  background-image: url('./svg/close_icon.svg');
-  width: 2.25rem;
+.img {
+  width: auto;
+  height: 0rem;
+  transition: all 0.8s ease 0s;
 }
 
 .accordion:hover p {
   color: #000;
+}
+
+.accordion-item_input:checked ~ .img-meme{
+  /*height: 100%;*/
+  opacity: 1;
+}
+
+.accordion-item_input:checked ~ .img-meme .img{
+  height: 34rem;
 }
 
 .accordion:hover .icon {
@@ -111,8 +130,18 @@ p {
   width: 2.25rem;
 }
 
-.accordion-item:hover .img-meme{
-  display: block;
+.accordion-item_input:checked ~ .wrapper .icon{
+  background-image: url('./svg/close_icon.svg');
+  width: 2.25rem;
+}
+
+.accordion-item:hover .img-meme {
+  /*height: 100%;*/
+  opacity: 1;
+}
+
+.accordion-item:hover .img-meme .img {
+  height: 34rem;
 }
 
 
