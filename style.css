@@ -13,9 +13,9 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, img {
 body {
   font-family: 'Comic Neue', sans-serif;
   font-style: normal;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 400;
-  line-height: 2rem;
+  line-height: 1rem;
   background-color: rgba(119, 136, 153,0.3);
   position: static;
 }
@@ -24,9 +24,9 @@ h1 {
   font-family: 'Comic Neue', sans-serif;
   color: #000;
   font-weight: 700;
-  font-size: 4.5rem;
+  font-size: 4rem;
   line-height: 5rem;
-  padding: 1.25rem 0 1.75rem; 
+  padding-top: 1.5rem; 
 }
 
 .accordion {
@@ -35,16 +35,14 @@ h1 {
   padding: 1.75rem 15rem;
   margin: auto;
   position: static;
-  
-  
 }
 
 .accordion-item_input{
   display: block;
   min-width: 100%;
+  min-height: 100%;
   opacity: 0;
   position: absolute;
-  top: 0; bottom: 0; left: 0; right: 0; /*как выставить без этого*/
   cursor: pointer;
 }
 
@@ -64,24 +62,25 @@ p {
 
 .accordion-item {
   min-width: 100%;
-  /*height: 100%;*/
-  height: auto;
+  min-height: 100%;
+  /*height: auto;*/
   border-top: 1px solid rgba(119, 136, 153,0.3);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  padding-top: 1rem;
+  margin-top: 1rem;
 }
 
 .wrapper {
   min-width: 100%;
-  height: 4rem; /* как установить в %? */
+  min-height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
 }
 
 /*.img-meme {
@@ -98,8 +97,7 @@ p {
   opacity: 0;
   height: 0%;
   transition: all 0.5s ease 0s;
-  padding: 1.5rem;
-
+  padding-top: 1.5rem;
 }
 
 .img {
@@ -144,7 +142,105 @@ p {
   height: 34rem;
 }
 
+@media(max-width:1224px){
+  .accordion {
+    max-width: 70%;
+    min-height: 100%;
+    padding: 1.5rem 12.5rem;
+  }
+  h1 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+    padding-top: 1.25rem; 
+  }
+  p {
+    font-size: 2rem;
+  }
+  .img-meme {
+    padding-top: 1rem;
+  }
+  .wrapper {
+    padding-top: 0rem;
+    height: 2.5rem; /* как установить в %? */
+  }
 
+  .accordion-item_input{
+    cursor:none;
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .accordion-item_input:checked ~ .img-meme .img{
+    height: 24rem;
+  }
+  
+  .accordion-item:hover .icon{
+    width: 1.75rem;
+  }
+  
+  .accordion-item_input:checked ~ .wrapper .icon{
+    width: 1.75rem;
+  }
+
+  .accordion-item:hover .img-meme .img {
+    height: 24rem;
+  }
+}
+
+@media(max-width:750px){
+  .accordion {
+    max-width: 80%;
+    min-height: 100%;
+    padding: 1rem 4rem;
+  }
+  h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+    padding-top: 1rem; 
+  }
+  p {
+    font-size: 1.25rem;
+  }
+  
+  .accordion-item_input{
+    cursor:none;
+  }
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .wrapper {
+    padding-top: 0.5rem;
+    height: 2rem; /* как установить в %? */
+  }
+  .img-meme {
+    padding-top: 0.5rem;
+  }
+
+  .accordion-item {
+    padding-top: 0rem;
+  }
+
+  .accordion-item_input:checked ~ .img-meme .img{
+    height: 12rem;
+  }
+  
+  .accordion-item:hover .icon{
+    width: 1.25rem;
+  }
+  
+  .accordion-item_input:checked ~ .wrapper .icon{
+    width: 1.25rem;
+  }
+
+  .accordion-item:hover .img-meme .img {
+    height: 12rem;
+  }
+
+}
 
 
 
